@@ -1,0 +1,79 @@
+//Hote  Management----------------
+#include <iostream>
+#include<conio.h>
+#define clrscr() system("cls");
+using namespace std;
+
+class Hotel{
+    public:
+string pname;
+int qty,rate;
+public:
+void Getproduct();
+void Displayproduct();
+
+};
+
+void Hotel::Getproduct(){
+cout<<"\nEnter the Product:";
+cin.ignore();
+getline(cin,pname);
+cout<<"\nEnter the rate of Product:";
+cin>>rate;
+
+cout<<"\nEnter the Quantity of Product:";
+cin>>qty;
+
+
+}
+void Hotel :: Displayproduct(){
+
+
+cout<<"\n "<<pname<<"               "<< qty<<"                      "<<rate<<"          "<<"         "<<qty*rate<<"\n";
+
+}
+
+int main(){
+
+clrscr();
+int j,total=0;
+cout<<"\n How many product you take:";
+cin>>j;
+Hotel h[j];
+int i,choice;
+
+do{
+cout<<"\n****************Hotel Billing********************";
+cout<<"\n1.Enter Product";
+cout<<"\n2.For Display Product";
+cout<<"\n3.Exit";
+cout<<"\n*************************************************";
+
+cout<<"\n Enter your choice:";
+cin>>choice;
+
+
+
+switch(choice){
+
+case 1:  for(i=0;i<j;i++)
+          h[i].Getproduct();
+           break;
+
+case 2: 
+          cout<<"\n  Name   "<<"            Quantity              "<<"     Rate                "<<"     Amount\n ";
+          cout<<"\n____________________________________________________________________________________________";
+          for(i=0;i<j;i++){
+          h[i].Displayproduct();
+          total= total + (h[i].rate*h[i].qty);
+          }
+          cout<<"\n___________________________________________________________";
+          cout<<"\nTotal Amount:"<<total<<"Rs";
+           break;
+           
+           }
+
+}while(choice!=3);
+
+    return 0;
+}
